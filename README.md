@@ -38,9 +38,23 @@ value = {"data": ["hash1", "hash2", ...]}
 ```
 
 Response:
+In case of recent interaction (less them two weeks ago)
 ```
 {
-    "response": bool
+    "response": "High risk"
 }
 ```
 
+In case of long-ago interaction (more then two weeks ago)
+```
+{
+    "response": "Low risk"
+}
+```
+
+In case of zero interactions with infected people.
+```
+{
+    "response": "No risk"
+}
+```
