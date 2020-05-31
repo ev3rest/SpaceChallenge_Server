@@ -20,3 +20,6 @@ class Config:
         self.db_port = config_parser.get(environment, 'database.port')
         self.db_username = config_parser.get(environment, 'database.username')
         self.db_password = config_parser.get(environment, 'database.password')
+
+        self.flask_host = config_parser.get(environment, 'flask.host')
+        self.flask_port = config_parser.get(environment, 'flask.port')

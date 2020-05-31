@@ -10,4 +10,7 @@ def add_to_db(hashcode: str):
 
 
 def is_in_db(hashcodes: list):
-    pass
+    q = Hash.query.filter(Hash.hash.in_(hashcodes))
+    if q.count() > 0:
+        return True
+    return False

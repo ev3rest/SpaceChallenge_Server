@@ -55,7 +55,7 @@ def check():
     """
     This function finds hashcodes in the database
 
-    :param hashcodes: [hash1, hash2]
+    :param hashcodes: [hash1, hash2, ...]
     :return:
     """
 
@@ -69,5 +69,5 @@ def check():
 
 def start():
     app.app.run(debug=True,
-                host='0.0.0.0',
-                port=5000)
+                host=conf.flask_host,
+                port=conf.flask_port)
