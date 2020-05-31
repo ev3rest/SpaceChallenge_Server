@@ -6,8 +6,9 @@
 `source venv/bin/activate`
 
 `python run.py`
+### Requests
 
-#### Requests
+***
 
 ##### Add infected hashes into the database
 Request:
@@ -25,7 +26,7 @@ Response:
     "response": bool
 }
 ```
-
+***
 
 ##### Find hashes in the database
 Request:
