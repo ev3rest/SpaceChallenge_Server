@@ -22,7 +22,7 @@ def is_in_db(hashcodes: list):
     now = datetime.datetime.utcnow()
     for item in q.all():
         created_at = item.created_at
-        if created_at - now > datetime.timedelta(days=14):
+        if now - created_at > datetime.timedelta(days=14):
             risk = "Low risk"
         else:
             return "High risk"

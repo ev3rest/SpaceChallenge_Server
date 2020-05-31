@@ -56,7 +56,7 @@ def check():
     """
 
     args = request.args
-    hashes = json.loads(args['hashes'])
+    hashes = json.loads(args['hashes'], encoding="utf-8")
 
     response = is_in_db(hashes['data'])
 
