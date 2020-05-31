@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 import json
+from urllib.parse import unquote
 
 from run import conf
 
@@ -56,7 +57,9 @@ def check():
     """
 
     args = request.args
-    hashes = json.loads(args['hashes'], encoding="utf-8")
+    unhashes = unquote(args['hashes'])
+    unhashes = unhashes.replace("\\", "")
+    hashes = json.loads(unhashes, encoding="utf-8")
 
     response = is_in_db(hashes['data'])
 
