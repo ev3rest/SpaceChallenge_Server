@@ -24,7 +24,10 @@ class App:
 
 
 app = App()
-from modules.utils import insert as add_to_db
+from modules.utils import (
+    add_to_db,
+    is_in_db
+)
 
 
 @app.app.route('/insert_contacts', methods=['POST'])
@@ -39,9 +42,12 @@ def insert():
 
     args = request.args
     hashes = json.loads(args['hashes'])
-
-    add_to_db(hashes['data'][0])
-    return ""
+    try:
+        add_to_db(hashes['data'])
+        response = "success"
+    except Exception:
+        response = "fail"
+    return {"response": response}
 
 
 @app.app.route('/check_contacts', methods=['POST'])
@@ -52,7 +58,13 @@ def check():
     :param hashcodes: [hash1, hash2]
     :return:
     """
-    return ""
+
+    args = request.args
+    hashes = json.loads(args['hashes'])
+
+    response = is_in_db(hashes['data'])
+
+    return {'response': response}
 
 
 def start():
