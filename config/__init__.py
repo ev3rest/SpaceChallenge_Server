@@ -23,3 +23,4 @@ class Config:
 
         self.flask_host = config_parser.get(environment, 'flask.host')
         self.flask_port = config_parser.get(environment, 'flask.port')
+        self.debug = config_parser.get(environment, 'flask.debug')

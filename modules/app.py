@@ -42,11 +42,7 @@ def insert():
 
     args = request.args
     hashes = json.loads(args['hashes'])
-    try:
-        add_to_db(hashes['data'])
-        response = "success"
-    except Exception:
-        response = "fail"
+    response = add_to_db(hashes['data'])
     return {"response": response}
 
 
@@ -68,6 +64,6 @@ def check():
 
 
 def start():
-    app.app.run(debug=True,
+    app.app.run(debug=conf.debug,
                 host=conf.flask_host,
                 port=conf.flask_port)
